@@ -381,7 +381,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getSpecificInformationWithAnimate(@NonNull LatLng latLng) {
-        float zoomLevel = 5.0f;
+        float zoomLevel = 6.0f;
         mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel), new GoogleMap.CancelableCallback() {
             @Override
             public void onCancel() {
