@@ -1,15 +1,20 @@
 package com.example.covid19.model.tracking;
 
+import com.example.covid19.model.FailureRes;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CountryTracking {
+public class CountryTracking extends FailureRes {
 
     private boolean hasData = true ;
 
     public CountryTracking() {
+    }
+    public CountryTracking(boolean isHasError, String errorMsg) {
+        super(isHasError,errorMsg);
     }
 
     public CountryTracking(boolean hasData) {

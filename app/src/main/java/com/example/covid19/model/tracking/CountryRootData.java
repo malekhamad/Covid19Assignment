@@ -1,14 +1,20 @@
 package com.example.covid19.model.tracking;
 
+import com.example.covid19.model.FailureRes;
+
 import java.util.List;
 
-public class CountryRootData {
+public class CountryRootData extends FailureRes {
     private long worldCases ;
     private long worldDeath ;
     private long worldRecovered ;
     private long worldConfirmed ;
 
     private List<CountryStatus> mCountryStatusList ;
+
+    public CountryRootData(boolean hasError, String errorMsg){
+        super(hasError, errorMsg);
+    }
 
     public CountryRootData(long worldCases, long worldDeath, long worldRecovered, long worldConfirmed) {
         this.worldCases = worldCases;

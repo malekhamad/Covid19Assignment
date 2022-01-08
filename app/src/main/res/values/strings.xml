@@ -22,5 +22,6 @@ Please grant the permissions from the Application settings to proceed.</string>
     <string name="news_title">News</string>
     <string name="no_data">No Data Found !</string>
     <string name="no_data_for_country">No data found for this country !</string>
+    <string name="failure">Something went wrong !</string>
 
 </resources>

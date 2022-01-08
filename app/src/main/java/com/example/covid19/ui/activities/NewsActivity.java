@@ -35,10 +35,17 @@ public class NewsActivity extends BaseActivity {
         @Override
         public void onChanged(NewsData newsData) {
             hideProgressDialog();
-            if(newsData.getArticles().size() == 0){
-                mBinding.textviewNoDataFound.setVisibility(View.VISIBLE);
-            }else
-            recyclerNewsAdapter.setArticleList(newsData.getArticles());
+            if(!newsData.isHasError()){
+                if(newsData.getArticles().size() == 0){
+                    mBinding.textviewNoDataFound.setVisibility(View.VISIBLE);
+                }else
+                    recyclerNewsAdapter.setArticleList(newsData.getArticles());
+            }else {
+                onFailure();
+            }
+
+
+
         }
     };
 
@@ -59,6 +66,7 @@ public class NewsActivity extends BaseActivity {
         onBackPressed();
         return true;
     }
+
 
     // endregion
 

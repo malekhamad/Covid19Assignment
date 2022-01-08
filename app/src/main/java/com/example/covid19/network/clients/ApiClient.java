@@ -16,9 +16,9 @@ public abstract class ApiClient<T extends WebService> {
 
     protected OkHttpClient.Builder getClient(){
         OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.readTimeout(30, TimeUnit.SECONDS);
-        client.writeTimeout(30, TimeUnit.SECONDS);
-        client.connectTimeout(30, TimeUnit.SECONDS);
+        client.readTimeout(10, TimeUnit.SECONDS);
+        client.writeTimeout(10, TimeUnit.SECONDS);
+        client.connectTimeout(10, TimeUnit.SECONDS);
 
         return client;
     }

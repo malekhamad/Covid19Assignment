@@ -70,6 +70,12 @@ public class MainActivity extends BaseActivity {
     private Observer<CountryRootData> trackingAllDataObserver = new Observer<CountryRootData>() {
         @Override
         public void onChanged(CountryRootData countryRootData) {
+
+            if(countryRootData.isHasError()){
+                onFailure();
+                return;
+            }
+
             for (int i = 0 ; i< countryRootData.getCountryStatusList().size() ; i++) {
 
                 // get LatLng from countryData by passing country name
@@ -102,6 +108,9 @@ public class MainActivity extends BaseActivity {
     private Observer<String> countryNameObserver = new Observer<String>() {
         @Override
         public void onChanged(String countryName) {
+            if(countryName == null){
+
+            }
             mMainViewModel.getTrackingDataByCountry(countryName, mMainViewModel.getSelectedStartDateWithFormat()
                     , mMainViewModel.getSelectedEndDateWithFormat()).observe(MainActivity.this, showBottomSheetObserver);
 
@@ -111,9 +120,14 @@ public class MainActivity extends BaseActivity {
     private Observer<Boolean> showBottomSheetObserver = new Observer<Boolean>() {
         @Override
         public void onChanged(Boolean showDialog) {
-            hideProgressDialog();
-            hideWorldStatus();
-            showBottomSheetDialog();
+            if(showDialog){
+                hideProgressDialog();
+                hideWorldStatus();
+                showBottomSheetDialog();
+            }else {
+                onFailure();
+            }
+
         }
     };
 
@@ -125,6 +139,10 @@ public class MainActivity extends BaseActivity {
             googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             MainActivity.this, R.raw.map_style));
+
+            // latlng for Jordan
+            googleMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(30.5852,36.2384) , 6.0f) );
+
 
             googleMap.setOnMapClickListener(onMapClickListener);
 
@@ -271,6 +289,12 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public Activity currentActivity() {
+        return this;
+    }
+
+
     // endregion
 
     // region Methods
@@ -386,10 +410,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public Activity currentActivity() {
-        return this;
-    }
     // endregion
 
 

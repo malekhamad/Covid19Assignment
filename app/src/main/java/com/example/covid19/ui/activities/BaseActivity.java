@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.covid19.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -24,6 +27,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract Activity currentActivity();
 
+    public void onFailure(){
+        Toast.makeText(mActivity.getApplicationContext(), R.string.failure, Toast.LENGTH_SHORT).show();
+        hideProgressDialog();
+    };
 
 
     public void showProgressDialog() {
