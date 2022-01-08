@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <fragment
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/start_date_img"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_date_from"
+        android:alpha="0.6"
+        app:tint="@color/white"
+        android:layout_marginStart="16dip"
+        android:layout_marginTop="24dip"/>
+
+    <ImageView
+        android:id="@+id/end_date_img"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        app:layout_constraintStart_toStartOf="@+id/start_date_img"
+        app:layout_constraintTop_toBottomOf="@+id/start_date_img"
+        android:src="@drawable/ic_date_to"
+        android:alpha="0.6"
+        app:tint="@color/white"
+        android:layout_marginTop="24dip"/>
+
+    <EditText
+        android:id="@+id/edit_date_from"
+        android:layout_width="0dip"
+        android:layout_height="40dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="32dip"
+        android:paddingStart="12dip"
+        android:backgroundTint="#66FFFFFF"
+        android:background="@drawable/rounded_rect"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:hint="@string/from_date"
+        android:focusable="false"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/start_date_img"
+        app:layout_constraintTop_toTopOf="@+id/start_date_img"
+        app:layout_constraintBottom_toBottomOf="@+id/start_date_img"/>
+
+
+    <EditText
+        android:id="@+id/edit_date_to"
+        android:layout_width="0dip"
+        android:layout_height="40dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="32dip"
+        android:paddingStart="12dip"
+        android:backgroundTint="#66FFFFFF"
+        android:inputType="date"
+        android:background="@drawable/rounded_rect"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:hint="@string/to_date"
+        android:enabled="false"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/end_date_img"
+        app:layout_constraintTop_toTopOf="@+id/end_date_img"
+        app:layout_constraintBottom_toBottomOf="@+id/end_date_img"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_status_root"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:background="#43FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_marginTop="8dip"
+                android:layout_marginStart="8dp"
+                android:id="@+id/linear_status_root"
+                app:layout_constraintTop_toTopOf="@id/constraint_status_root"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/low_root"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:src="@drawable/ic_corona_white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:text="Low Cases"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/medium_root"
+                    app:layout_constraintStart_toEndOf="@+id/low_root"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:src="@drawable/ic_corona_yellow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:text="Medium cases"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/medium_root"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:src="@drawable/ic_corona_red" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:text="High cases"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/image_earth"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                app:layout_constraintTop_toBottomOf="@+id/linear_status_root"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dip"
+                android:layout_marginTop="16dip"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_title"
+                android:text="@string/world_status_title"
+                app:layout_constraintTop_toTopOf="@+id/image_earth"
+                app:layout_constraintBottom_toBottomOf="@id/image_earth"
+                app:layout_constraintStart_toEndOf="@id/image_earth"
+                android:layout_marginStart="8dip"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textStyle="bold|italic"
+                />
+
+            <TextView
+                android:id="@+id/textView_today_deaths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dip"
+                android:layout_marginBottom="64dip"
+                android:text="@string/cases"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/image_earth"
+                app:layout_constraintTop_toBottomOf="@+id/textView_today_cases" />
+
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confirmed"
+                android:id="@+id/textView_today_confirmed"
+                app:layout_constraintTop_toBottomOf="@+id/image_earth"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="16dip"
+                  android:paddingEnd="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recovered"
+                android:id="@+id/textView_today_recovered"
+                app:layout_constraintTop_toBottomOf="@+id/textView_today_confirmed"
+                app:layout_constraintStart_toStartOf="@id/textView_today_confirmed"
+                android:layout_marginTop="16dip"
+                  android:paddingEnd="8dp"
+                  android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cases"
+                android:id="@+id/textView_today_cases"
+                app:layout_constraintTop_toBottomOf="@+id/image_earth"
+                app:layout_constraintStart_toStartOf="@id/image_earth"
+                android:layout_marginTop="16dip"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

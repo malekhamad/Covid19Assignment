@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Covid19</string>
+
+    <string name="map_api_key">AIzaSyAhe3AW1aK3Y4UjmFoTlchNXPNUWy40mrs</string>
+
+    <string name="grant_permission">Permission required for this app, please grant all permission .</string>
+    <string name="permission_denied_title">Permissions Denied</string>
+    <string name="permission_denied_msg">The requested permissions are mandatory.
+Please grant the permissions from the Application settings to proceed.</string>
+
+    <string name="from_date">From</string>
+    <string name="to_date">To</string>
+
+
+    <string name="world_status_title">World Covid19 Status</string>
+    <string name="cases">Cases : </string>
+    <string name="deaths">Deaths : </string>
+    <string name="recovered">Recovered : </string>
+    <string name="confirmed">Confirmed : </string>
+    <string name="required_date_field_msg">Date fields are required !</string>
+    <string name="news">Navigate to news screen</string>
+    <string name="news_title">News</string>
+    <string name="no_data">No Data Found !</string>
+    <string name="no_data_for_country">No data found for this country !</string>
+
+</resources>

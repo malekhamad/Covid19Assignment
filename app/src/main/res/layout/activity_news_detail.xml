@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="article"
+            type="com.example.covid19.model.news.Article" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context=".ui.activities.NewsDetailActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="0dip"
+            tools:layout_editor_absoluteY="0dip" >
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        android:layout_width="0dip"
+        android:layout_height="160dip"
+        app:newsImage="@{article.urlToImage}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imageview_news_detail"
+        />
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{article.title}"
+        android:layout_marginTop="16dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        app:layout_constraintTop_toBottomOf="@id/imageview_news_detail"
+        android:id="@+id/textview_news_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textStyle="italic"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        android:text="@{article.author}"
+        app:layout_constraintTop_toBottomOf="@id/textview_news_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:id="@+id/textview_author_news_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        android:text="@{article.publishedAt}"
+        app:layout_constraintTop_toBottomOf="@id/textview_news_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:id="@+id/textview_news_detail_date"
+        />
+
+    <TextView
+        android:id="@+id/textview_content_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        android:text="@{article.content}"
+        app:layout_constraintTop_toBottomOf="@id/textview_news_detail_date"
+        android:layout_marginTop="16dip"
+        android:textSize="18sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout> </ScrollView></layout>
