@@ -59,7 +59,7 @@ public class MainViewModel extends AndroidViewModel {
 
     public MutableLiveData<Boolean> getTrackingDataByCountry(String countryName, String dateFrom, String dateTo) {
         TrackingRepository.getTrackingByCountryRemote(countryName, dateFrom, dateTo).observeForever(countryTracking -> {
-            if(countryTracking.isHasError()){
+            if(!countryTracking.isHasError()){
                 mCountryTracking = countryTracking;
                 showCountryBottomSheetMutable.setValue(true);
             }else{

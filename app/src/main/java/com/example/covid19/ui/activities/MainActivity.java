@@ -109,7 +109,8 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onChanged(String countryName) {
             if(countryName == null){
-
+              onFailure();
+              return;
             }
             mMainViewModel.getTrackingDataByCountry(countryName, mMainViewModel.getSelectedStartDateWithFormat()
                     , mMainViewModel.getSelectedEndDateWithFormat()).observe(MainActivity.this, showBottomSheetObserver);
