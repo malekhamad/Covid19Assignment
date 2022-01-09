@@ -138,7 +138,6 @@ public class MainActivity extends BaseActivity {
                     MapStyleOptions.loadRawResourceStyle(
                             MainActivity.this, R.raw.map_style));
 
-            // latlng for Jordan
             googleMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(48.864716
                     ,2.349014) , 6.0f) );
 
