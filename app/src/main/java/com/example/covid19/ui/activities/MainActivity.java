@@ -139,7 +139,8 @@ public class MainActivity extends BaseActivity {
                             MainActivity.this, R.raw.map_style));
 
             // latlng for Jordan
-            googleMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(30.5852,36.2384) , 6.0f) );
+            googleMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(48.864716
+                    ,2.349014) , 6.0f) );
 
 
             googleMap.setOnMapClickListener(onMapClickListener);
