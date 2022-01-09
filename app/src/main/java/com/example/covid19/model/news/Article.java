@@ -53,6 +53,10 @@ public class Article implements Parcelable {
         return author;
     }
 
+    public String getUnknown(){
+        return "Unknown";
+    }
+
     public String getTitle() {
         return title;
     }

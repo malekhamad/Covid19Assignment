@@ -22,7 +22,6 @@ import java.util.List;
 public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapter.RecyclerNewsVH> {
    private Context mContext ;
    private List<Article> mArticleList ;
-   private NewsItemCellBinding mNewsItemCellBinding;
    public RecyclerNewsAdapter(Context context){
        this.mContext = context ;
    }
@@ -30,7 +29,7 @@ public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapte
     @NonNull
     @Override
     public RecyclerNewsVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         mNewsItemCellBinding = DataBindingUtil.
+        NewsItemCellBinding mNewsItemCellBinding = DataBindingUtil.
                 inflate(LayoutInflater.from(parent.getContext())
                         , R.layout.news_item_cell,parent,false);
 
@@ -40,9 +39,9 @@ public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerNewsVH holder, int position) {
          Article mArticle = mArticleList.get(position);
-        mNewsItemCellBinding.setArticle(mArticle);
+        holder.mNewsItemCellBinding.setArticle(mArticle);
 
-        mNewsItemCellBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+        holder.mNewsItemCellBinding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, NewsDetailActivity.class);
