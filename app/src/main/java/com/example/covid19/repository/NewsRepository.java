@@ -17,11 +17,13 @@ public class NewsRepository {
 
     private static final String TAG = "NewsRepository";
 
+    private static CompositeDisposable disposable = new CompositeDisposable();
+
+
     public static MutableLiveData<NewsData> getNewsDataRemote(String countryCode){
 
         MutableLiveData<NewsData> mNewsDataMutableLiveData = new MutableLiveData<>();
 
-        CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
         NewsClient.getInstance().provideCall().newsService(countryCode)
                 .subscribeOn(Schedulers.io())
@@ -29,7 +31,7 @@ public class NewsRepository {
                 .subscribe(new SingleObserver<NewsData>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        mCompositeDisposable.add(d);
+                        disposable.add(d);
                     }
 
                     @Override
@@ -45,4 +47,9 @@ public class NewsRepository {
 
         return mNewsDataMutableLiveData ;
     }
+
+    public static void clearDisposable() {
+        disposable.clear();
+    }
+
 }

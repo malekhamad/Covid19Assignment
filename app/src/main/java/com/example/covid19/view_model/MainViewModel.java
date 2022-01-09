@@ -197,6 +197,6 @@ public class MainViewModel extends AndroidViewModel {
     protected void onCleared() {
         super.onCleared();
         CountryRepository.disposeObservable();
-        TrackingRepository.disposeObservable();
+        TrackingRepository.clearDisposable();
     }
 }

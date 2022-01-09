@@ -101,10 +101,7 @@ public class TrackingRepository {
         return mCountryTrackingMutableLiveData;
     }
 
-    public static void disposeObservable() {
-        if(!disposable.isDisposed()){
-            disposable.dispose();
-
-        }
+    public static void clearDisposable() {
+            disposable.clear();
     }
 }

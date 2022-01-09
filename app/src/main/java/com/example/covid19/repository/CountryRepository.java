@@ -60,7 +60,7 @@ public class CountryRepository {
 
 
     public static void disposeObservable() {
-        if (disposable.isDisposed()) {
+        if (!disposable.isDisposed()) {
             disposable.dispose();
 
         }

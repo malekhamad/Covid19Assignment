@@ -11,4 +11,11 @@ public class NewsViewModel extends ViewModel {
     public MutableLiveData<NewsData> getNewsData(String countryCode){
          return NewsRepository.getNewsDataRemote(countryCode);
     }
+
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        NewsRepository.clearDisposable();
+    }
 }
