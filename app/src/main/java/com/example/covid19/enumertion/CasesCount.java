@@ -1,4 +1,4 @@
-package com.example.covid19;
+package com.example.covid19.enumertion;
 
 public enum CasesCount {
     LOW(70), MEDIUM(150), DANGEROUS(200);

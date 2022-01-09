@@ -3,7 +3,6 @@ package com.example.covid19.ui.activities;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,11 +20,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.covid19.CasesCount;
+import com.example.covid19.enumertion.CasesCount;
 import com.example.covid19.R;
 import com.example.covid19.databinding.ActivityMainBinding;
 import com.example.covid19.databinding.FragmentCountryDialogBinding;
