@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:background="@color/black_opacity"
+                android:background="@color/dark_gray"
                 android:id="@+id/linear_status_root"
                 app:layout_constraintTop_toTopOf="@id/constraint_status_root"
                 app:layout_constraintStart_toStartOf="parent"
