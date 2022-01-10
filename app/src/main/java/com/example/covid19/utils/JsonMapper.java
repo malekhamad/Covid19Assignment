@@ -109,16 +109,16 @@ public class JsonMapper {
                 long cases = country.optLong("today_open_cases");
 
                 // check if key(countryName) already exist then append it
-                if(mMap.get(name) == null){
+//                if(mMap.get(name) == null){
                     mMap.put(name,new CountryStatus(cases,name));
-                }else {
+          /*      }else {
                    long previousCaseNum = mMap.get(name).getCasesNumber() ;
                     mMap.put(name,new CountryStatus(cases+previousCaseNum,name));
 
                     Log.i("MapJson", "previousName : "+name+"    previousNumber: "+previousCaseNum);
                     Log.i("MapJson", "newCases :"+cases);
 
-                }
+                }*/
             }
         }
 
